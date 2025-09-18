@@ -4,8 +4,8 @@ from functools import wraps
 
 def cache(func: Callable) -> Callable:
     result = {}
-    @wraps(func)
 
+    @wraps(func)
     def wrapper(*args, **kwargs) -> Callable:
         key = (*args, tuple(sorted(kwargs.items())))
         if key not in result:
